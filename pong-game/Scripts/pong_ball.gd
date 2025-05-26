@@ -3,6 +3,8 @@ extends RigidBody2D
 @export var speed = 500.0
 
 func _ready() -> void:
+	position = get_viewport_rect().size / 2
+	
 	contact_monitor = true
 	max_contacts_reported = 4  # Ajusta según lo necesario
 	var timer : Timer = Timer.new()
@@ -13,11 +15,10 @@ func _ready() -> void:
 	timer.start()
 	
 func _process(delta: float) -> void:
-	if position.y < (get_viewport().size.y - 50) or position.y > (get_viewport().size.y + 50):
+	if position.y > (get_viewport().size.y - 50) or position.y < (get_viewport().size.y + 50):
 		var current_velocity = linear_velocity
 		var inverted_velocity = Vector2(current_velocity.x, -current_velocity.y)
 		linear_velocity = inverted_velocity
-		
 
 func _on_timeout():
 	var random_sign = -1 if randf() < 0.5 else 1
