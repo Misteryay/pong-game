@@ -10,20 +10,15 @@ func _ready() -> void:
 	player2 = pallets[1]
 	
 func _physics_process(delta: float) -> void:
-	player1.velocity = Vector2.ZERO
 	
 	if Input.is_action_pressed("Down1"):
-		player1.velocity.y += speed
+		player1.position.y += speed * delta
 	if Input.is_action_pressed("Up1"):
-		player1.velocity.y -= speed
+		player1.position.y -= speed * delta
 		
-	player1.move_and_slide()
-	
-	player2.velocity = Vector2.ZERO
 	
 	if Input.is_action_pressed("Down2"):
-		player2.velocity.y += speed
+		player2.position.y += speed * delta
 	if Input.is_action_pressed("Up2"):
-		player2.velocity.y -= speed
+		player2.position.y -= speed * delta
 		
-	player2.move_and_slide()
