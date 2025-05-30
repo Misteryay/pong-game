@@ -49,3 +49,8 @@ shape = SubResource("RectangleShape2D_344ge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenCollisions/RightGoal"]
 shape = SubResource("RectangleShape2D_344ge")
+
+[connection signal="body_entered" from="ScreenCollisions/UpperLimit" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="ScreenCollisions/BottomLimit" to="." method="_on_ball_entered"]
+[connection signal="body_entered" from="ScreenCollisions/LeftGoal" to="." method="_on_ball_entered"]
+[connection signal="body_entered" from="ScreenCollisions/RightGoal" to="." method="_on_ball_entered"]

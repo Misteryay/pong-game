@@ -29,4 +29,9 @@ func get_pallets() -> Array:
 		if child.is_in_group("pallet"):
 			pallets.append(child)
 	return pallets
+
+
+func _on_ball_entered(ball: Node2D) -> void:
+	print("EAWADASDWA")
+	ball.invert_y_direction()
 	
