@@ -14,5 +14,5 @@ func _physics_process(delta: float) -> void:
 		position.y = 100
 
 
-func _on_area_2d_body_entered(ball: Node2D) -> void:
+func _on_area_2d_ball_entered(ball: Node2D) -> void:
 	ball.invert_direction()

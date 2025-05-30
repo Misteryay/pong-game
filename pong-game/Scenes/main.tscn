@@ -1,13 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://bs43doe2ohqhr"]
+[gd_scene load_steps=9 format=3 uid="uid://bs43doe2ohqhr"]
 
 [ext_resource type="Script" uid="uid://lgkd8vtdjjc" path="res://Scripts/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cca7xawouud1q" path="res://Scenes/pallet.tscn" id="2_jjvhh"]
 [ext_resource type="Script" uid="uid://cfvsisnxefpuu" path="res://Scripts/AdjustPalletPosition.gd" id="3_kry3j"]
 [ext_resource type="Script" uid="uid://crybdnk1th5dp" path="res://Scripts/user_input.gd" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://dqb1onvymckjk" path="res://Scenes/pong_ball.tscn" id="5_kry3j"]
-[ext_resource type="Script" uid="uid://scq0jjg0fcuy" path="res://Scenes/upper_collision.gd" id="6_21xkr"]
+[ext_resource type="Script" uid="uid://cx4tx2n8ke0k7" path="res://Scenes/screen_collisions.gd" id="6_21xkr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6bp64"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_344ge"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8gbba")
@@ -23,12 +25,27 @@ script = ExtResource("3_kry3j")
 script = ExtResource("4_jjvhh")
 
 [node name="PongBall" parent="." instance=ExtResource("5_kry3j")]
-position = Vector2(604, 311)
+position = Vector2(503, 220)
 
 [node name="ScreenCollisions" type="Node" parent="."]
-
-[node name="UpperCollision" type="Area2D" parent="ScreenCollisions"]
 script = ExtResource("6_21xkr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenCollisions/UpperCollision"]
+[node name="UpperLimit" type="Area2D" parent="ScreenCollisions"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenCollisions/UpperLimit"]
 shape = SubResource("RectangleShape2D_6bp64")
+
+[node name="BottomLimit" type="Area2D" parent="ScreenCollisions"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenCollisions/BottomLimit"]
+shape = SubResource("RectangleShape2D_344ge")
+
+[node name="LeftGoal" type="Area2D" parent="ScreenCollisions"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenCollisions/LeftGoal"]
+shape = SubResource("RectangleShape2D_344ge")
+
+[node name="RightGoal" type="Area2D" parent="ScreenCollisions"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenCollisions/RightGoal"]
+shape = SubResource("RectangleShape2D_344ge")

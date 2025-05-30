@@ -17,3 +17,9 @@ shape = SubResource("RectangleShape2D_o12ka")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 mesh = SubResource("QuadMesh_rwty4")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

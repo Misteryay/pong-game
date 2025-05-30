@@ -1,14 +1,25 @@
 extends Node2D
 
-@onready var adjust_pallet_position: Node = $AdjustPalletPosition
+@onready var adjust_assets_position: Node = $AdjustAssetsPosition
 @onready var pong_ball: RigidBody2D = $PongBall
-@onready var pallet: Node2D = $Pallet
-@onready var pallet_2: Node2D = $Pallet2
+@onready var screen_collisions: Node = $ScreenCollisions
+@onready var upper_limit: Area2D = $ScreenCollisions/UpperLimit
+@onready var bottom_limit: Area2D = $ScreenCollisions/BottomLimit
+@onready var left_goal: Area2D = $ScreenCollisions/LeftGoal
+@onready var right_goal: Area2D = $ScreenCollisions/RightGoal
 
 
 func _ready() -> void:
 	var pallets = get_pallets()
-	adjust_pallet_position.adjust_pallet_position(pallets)
+	var collisions = []
+	collisions.append(upper_limit)
+	collisions.append(bottom_limit)
+	collisions.append(left_goal)
+	collisions.append(right_goal)
+	adjust_assets_position.adjust_pallet_position(pallets)
+	adjust_assets_position.adjust_ball_position(pong_ball)
+	adjust_assets_position.adjust_collisions(collisions)
+	
 	
 	
 func get_pallets() -> Array:
@@ -18,3 +29,4 @@ func get_pallets() -> Array:
 		if child.is_in_group("pallet"):
 			pallets.append(child)
 	return pallets
+	
