@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dtqqnsqtaiwi3"]
+
+[node name="Score" type="HBoxContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_right = 25.0
+offset_bottom = 55.0
+grow_horizontal = 2
+theme_override_constants/separation = 150
+
+[node name="LeftScore" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="RightScore" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "0"

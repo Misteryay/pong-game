@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dexg5k6ycpqj2"]
+
+[ext_resource type="Texture2D" uid="uid://dqjqsyopn4v3b" path="res://Assets/Space Background.jpg" id="1_jjvhh"]
+[ext_resource type="Script" uid="uid://boh1ds4mp5gh" path="res://Scripts/main.gd" id="2_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://bj5ka0xiacjsd" path="res://Scenes/Ball.tscn" id="2_kry3j"]
+[ext_resource type="PackedScene" uid="uid://dotp12lljd87n" path="res://Scenes/pallet.tscn" id="3_21xkr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
+size = Vector2(1152, 32)
+
+[node name="Main" type="Sprite2D"]
+texture = ExtResource("1_jjvhh")
+centered = false
+script = ExtResource("2_jjvhh")
+
+[node name="Ball" parent="." instance=ExtResource("2_kry3j")]
+position = Vector2(-272, 48)
+
+[node name="Pallet" parent="." instance=ExtResource("3_21xkr")]
+position = Vector2(-80, -184)
+
+[node name="Pallet2" parent="." instance=ExtResource("3_21xkr")]
+position = Vector2(-248, -80)
+
+[node name="SetAssetsPosition" type="Node" parent="."]
+
+[node name="ScreenCollisions" type="StaticBody2D" parent="."]
+
+[node name="UpperCollision" type="CollisionShape2D" parent="ScreenCollisions"]
+position = Vector2(576, -16)
+shape = SubResource("RectangleShape2D_jjvhh")
+
+[node name="BottomCollision" type="CollisionShape2D" parent="ScreenCollisions"]
+position = Vector2(576, 664)
+shape = SubResource("RectangleShape2D_jjvhh")
