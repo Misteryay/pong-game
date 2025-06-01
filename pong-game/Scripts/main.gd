@@ -35,3 +35,8 @@ func _on_ball_entered(ball: Node2D) -> void:
 	print("EAWADASDWA")
 	ball.invert_y_direction()
 	
+
+
+func _on_upper_limit_body_entered(ball: Node2D) -> void:
+	print("EAWADASDWA")
+	ball.invert_y_direction()

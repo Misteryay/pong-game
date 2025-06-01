@@ -17,7 +17,7 @@ func _on_timer_timeout() -> void:
 
 func invert_x_direction():
 	var current_speed = linear_velocity
-	linear_velocity = Vector2(-current_speed.x * 1.1, current_speed.y * 1.1)
+	linear_velocity = Vector2(-current_speed.x * 1.3, current_speed.y * 1.1)
 	
 func invert_y_direction():
 	var current_speed = linear_velocity

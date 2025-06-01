@@ -18,37 +18,33 @@ func adjust_ball_position(ball: RigidBody2D):
 	ball.position.y = screen_size.y / 2
 	
 func adjust_collisions(Collisions: Array):
-	print(Collisions.size())
 	var screen_size = get_viewport().size
 	
 	# Upper Collision
 	var upper_limit = Collisions[0]
 	upper_limit.position.x = screen_size.x / 2
 	upper_limit.position.y = 0
-	var upper_rect: RectangleShape2D = upper_limit.get_child(0).shape
-	upper_rect.size = Vector2(screen_size.x, 5)
+	var upper_shape: RectangleShape2D = upper_limit.get_node("CollisionShape2D").shape
+	upper_shape.size = Vector2(screen_size.x, 5)
 	
 	# Bottom Collision
-	var bottom_limit = Collisions[0]
+	var bottom_limit = Collisions[1]
 	bottom_limit.position.x = screen_size.x / 2
-	bottom_limit.position.y = screen_size.y
-	var bottom_rect: RectangleShape2D = bottom_limit.get_child(0).shape
-	bottom_rect.size = Vector2(screen_size.x, 5)
+	bottom_limit.position.y = screen_size.y 
+	bottom_limit.rotation = rad_to_deg(90)
+	var bottom_shape: RectangleShape2D = bottom_limit.get_node("CollisionShape2D").shape
+	bottom_shape.size = Vector2(screen_size.x, 5)
 	
 	# Left Collision
-	var left_goal = Collisions[0]
+	var left_goal = Collisions[2]
 	left_goal.position.x = 0
 	left_goal.position.y = screen_size.y / 2
-	var left_rect: RectangleShape2D = upper_limit.get_child(0).shape
-	left_rect.size = Vector2(10, screen_size.y)
+	var left_shape: RectangleShape2D = left_goal.get_node("CollisionShape2D").shape
+	left_shape.size = Vector2(10, screen_size.y)
 	
-	# right Collision
-	var right_goal = Collisions[0]
+	# Right Collision
+	var right_goal = Collisions[3]
 	right_goal.position.x = screen_size.x
 	right_goal.position.y = screen_size.y / 2
-	var right_rect: RectangleShape2D = upper_limit.get_child(0).shape
-	right_rect.size = Vector2(10, screen_size.y)
-	
-	
-	
-	
+	var right_shape: RectangleShape2D = right_goal.get_node("CollisionShape2D").shape
+	right_shape.size = Vector2(10, screen_size.y)
