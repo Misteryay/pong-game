@@ -31,7 +31,6 @@ func adjust_collisions(Collisions: Array):
 	var bottom_limit = Collisions[1]
 	bottom_limit.position.x = screen_size.x / 2
 	bottom_limit.position.y = screen_size.y 
-	bottom_limit.rotation = rad_to_deg(90)
 	var bottom_shape: RectangleShape2D = bottom_limit.get_node("CollisionShape2D").shape
 	bottom_shape.size = Vector2(screen_size.x, 5)
 	
