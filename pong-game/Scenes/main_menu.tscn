@@ -1,0 +1,146 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2fo2pgg5cfh4"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_28flt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_erv1k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28flt"]
+bg_color = Color(0.762404, 0.762404, 0.762404, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(0, 4.69)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48xlc"]
+bg_color = Color(0.564962, 0.564962, 0.564962, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(0, 4.69)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erv1k"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(0, 4.69)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28flt")
+
+[node name="MainBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -114.0
+offset_right = 120.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Play" type="Button" parent="MainBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxEmpty_erv1k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_28flt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
+text = "Play"
+
+[node name="Exit" type="Button" parent="MainBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxEmpty_erv1k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_28flt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
+text = "Exit"
+
+[node name="PlayBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -348.5
+offset_top = -105.0
+offset_right = 348.5
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Player" type="Button" parent="PlayBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxEmpty_erv1k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_28flt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
+text = "player vs player"
+
+[node name="Computer" type="Button" parent="PlayBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxEmpty_erv1k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_28flt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
+text = "player vs computer"
+
+[node name="Back" type="Button" parent="PlayBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxEmpty_erv1k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_28flt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
+text = "Back"
+
+[connection signal="pressed" from="MainBox/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainBox/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="PlayBox/Player" to="." method="_on_player_pressed"]
+[connection signal="pressed" from="PlayBox/Back" to="." method="_on_back_pressed"]
