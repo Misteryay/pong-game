@@ -3,7 +3,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2q10t"]
 size = Vector2(16, 144)
 
-[node name="Pallet" type="StaticBody2D"]
+[node name="Pallet" type="StaticBody2D" groups=["pallet"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2q10t")
