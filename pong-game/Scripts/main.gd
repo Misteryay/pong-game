@@ -12,6 +12,7 @@ func set_assets_position() -> void:
 	var left_pallet = $Pallet
 	var right_pallet = $"Pallet2"
 	var ball = $Ball
+	var score : HBoxContainer= $Score
 	
 	left_pallet.position.x = 30
 	left_pallet.position.y = screen_size.y / 2
@@ -20,3 +21,6 @@ func set_assets_position() -> void:
 	right_pallet.position.y = screen_size.y / 2
 
 	ball.position = screen_size / 2
+	
+	score.position.x = (screen_size.x / 2) - 90
+	score.position.y = 20

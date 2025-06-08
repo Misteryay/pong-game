@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var initial_speed = 300
+const  initial_speed = 300
 const ACCELERATION = 40
 var dir : Vector2
 var current_speed : float
@@ -9,7 +9,8 @@ func new_match() -> void:
 	$StartTimer.start()
 
 func _physics_process(delta: float) -> void:
-	move_and_collide(dir * current_speed * delta)
+	var collider = move_and_collide(dir * current_speed * delta)
+	print(collider)
 
 func _on_start_timer_timeout() -> void:
 	var random_num = randf()
