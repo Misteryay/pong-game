@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dexg5k6ycpqj2"]
+[gd_scene load_steps=8 format=3 uid="uid://dexg5k6ycpqj2"]
 
 [ext_resource type="Script" uid="uid://boh1ds4mp5gh" path="res://Scripts/main.gd" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bj5ka0xiacjsd" path="res://Scenes/Ball.tscn" id="2_kry3j"]
@@ -9,20 +9,31 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
 size = Vector2(1152, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
+size = Vector2(16, 648)
+
 [node name="Main" type="Sprite2D"]
 centered = false
 script = ExtResource("2_jjvhh")
 
 [node name="Ball" parent="." instance=ExtResource("2_kry3j")]
 position = Vector2(-272, 48)
+collision_layer = 3
+collision_mask = 3
 
 [node name="Pallet" parent="." instance=ExtResource("3_21xkr")]
 position = Vector2(-80, -184)
+collision_layer = 2
+collision_mask = 0
 
 [node name="Pallet2" parent="." instance=ExtResource("3_21xkr")]
 position = Vector2(-248, -80)
+collision_layer = 2
+collision_mask = 0
 
 [node name="ScreenCollisions" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
 
 [node name="UpperCollision" type="CollisionShape2D" parent="ScreenCollisions"]
 position = Vector2(576, -16)
@@ -36,3 +47,18 @@ shape = SubResource("RectangleShape2D_jjvhh")
 
 [node name="InputHandler" type="Node" parent="."]
 script = ExtResource("5_21xkr")
+
+[node name="LeftScore" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftScore"]
+position = Vector2(-8, 324)
+shape = SubResource("RectangleShape2D_kry3j")
+
+[node name="RightScore" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightScore"]
+position = Vector2(1160, 324)
+shape = SubResource("RectangleShape2D_kry3j")
+
+[connection signal="body_entered" from="LeftScore" to="Score" method="left_score"]
+[connection signal="body_entered" from="RightScore" to="Score" method="right_score"]

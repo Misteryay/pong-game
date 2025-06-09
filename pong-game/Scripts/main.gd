@@ -1,11 +1,17 @@
 extends Sprite2D
 
+
+
+var isMultiplayer : bool
+@onready var score: HBoxContainer = $Score
+
 func _ready() -> void:
 	start_new_match()
 	
 func start_new_match() -> void:
 	set_assets_position()
 	$Ball.new_match()
+	$Score.new_match()
 	
 func set_assets_position() -> void:
 	var screen_size = get_viewport().size

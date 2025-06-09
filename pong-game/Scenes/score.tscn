@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dtqqnsqtaiwi3"]
+[gd_scene load_steps=2 format=3 uid="uid://dtqqnsqtaiwi3"]
+
+[ext_resource type="Script" uid="uid://be40xk2lh1woc" path="res://Scenes/score.gd" id="1_0f7a8"]
 
 [node name="Score" type="HBoxContainer"]
 anchors_preset = 5
@@ -9,6 +11,7 @@ offset_right = 98.0
 offset_bottom = 55.0
 grow_horizontal = 2
 theme_override_constants/separation = 150
+script = ExtResource("1_0f7a8")
 
 [node name="LeftScore" type="Label" parent="."]
 layout_mode = 2
