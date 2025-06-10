@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dobn1x3mu3psx"]
 
-[ext_resource type="Script" uid="uid://dhifro8srcjjy" path="res://Scripts/hud.gd" id="1_e0onf"]
+[ext_resource type="Script" uid="uid://dhifro8srcjjy" path="res://Scripts/hud.gd" id="1_tt5f1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3gfia"]
 
@@ -28,14 +28,14 @@ corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 shadow_offset = Vector2(-2, 1)
 
-[node name="HUD" type="Control"]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_e0onf")
+script = ExtResource("1_tt5f1")
 
 [node name="FirstPage" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -140,4 +140,6 @@ text = "Back
 
 [connection signal="pressed" from="FirstPage/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="FirstPage/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="SecondPage/PlayerButton" to="." method="_on_player_button_pressed"]
+[connection signal="pressed" from="SecondPage/ComputerButton" to="." method="_on_computer_button_pressed"]
 [connection signal="pressed" from="SecondPage/BackButton" to="." method="_on_back_button_pressed"]
