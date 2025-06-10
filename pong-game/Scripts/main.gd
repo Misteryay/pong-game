@@ -11,7 +11,7 @@ func _ready() -> void:
 func start_new_match() -> void:
 	set_assets_position()
 	$Ball.new_match()
-	$Score.new_match()
+	
 	
 func set_assets_position() -> void:
 	var screen_size = get_viewport().size

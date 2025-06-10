@@ -8,6 +8,7 @@ var current_speed : float
 
 func new_match() -> void:
 	$StartTimer.start()
+	current_speed = 0.0
 
 func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(dir * current_speed * delta)

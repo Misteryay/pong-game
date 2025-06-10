@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dexg5k6ycpqj2"]
+[gd_scene load_steps=9 format=3 uid="uid://dexg5k6ycpqj2"]
 
 [ext_resource type="Script" uid="uid://boh1ds4mp5gh" path="res://Scripts/main.gd" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bj5ka0xiacjsd" path="res://Scenes/Ball.tscn" id="2_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dotp12lljd87n" path="res://Scenes/pallet.tscn" id="3_21xkr"]
-[ext_resource type="Script" uid="uid://bv4cw4gr52v0h" path="res://Scenes/input_handler.gd" id="5_21xkr"]
+[ext_resource type="Script" uid="uid://bv4cw4gr52v0h" path="res://Scripts/input_handler.gd" id="5_21xkr"]
 [ext_resource type="PackedScene" uid="uid://dtqqnsqtaiwi3" path="res://Scenes/score.tscn" id="5_kry3j"]
+[ext_resource type="Script" uid="uid://u1hdx6cpcmby" path="res://Scripts/reset_timer.gd" id="6_21xkr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
 size = Vector2(1152, 32)
@@ -60,5 +61,13 @@ shape = SubResource("RectangleShape2D_kry3j")
 position = Vector2(1160, 324)
 shape = SubResource("RectangleShape2D_kry3j")
 
+[node name="ResetTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+script = ExtResource("6_21xkr")
+
 [connection signal="body_entered" from="LeftScore" to="Score" method="left_score"]
+[connection signal="body_entered" from="LeftScore" to="ResetTimer" method="_on_score"]
 [connection signal="body_entered" from="RightScore" to="Score" method="right_score"]
+[connection signal="body_entered" from="RightScore" to="ResetTimer" method="_on_score"]
+[connection signal="timeout" from="ResetTimer" to="." method="start_new_match"]

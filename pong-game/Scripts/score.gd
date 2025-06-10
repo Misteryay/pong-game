@@ -2,15 +2,15 @@ extends HBoxContainer
 
 var scores: Array
 
-func new_match():
+func _ready() -> void:
 	scores = [0,0]
 
 func left_score(body: Node2D):
-	scores[0] += 1
+	scores[1] += 1
 	update_score()
 	
 func right_score(body: Node2D):
-	scores[1] += 1
+	scores[0] += 1
 	update_score()
 	
 func update_score():
