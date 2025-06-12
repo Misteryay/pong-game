@@ -9,8 +9,6 @@ var pallet_size
 
 const SPEED = 400
 
-var isMultiplayer : bool
-
 func _ready() -> void:
 	screen_size = get_viewport().size
 	pallet_size = pallet1.get_node("CollisionShape2D").shape.size.y

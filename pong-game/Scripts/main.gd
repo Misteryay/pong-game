@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 func start_new_match() -> void:
 	set_assets_position()
 	$Ball.new_match()
-	$InputHandler.isMultiplayer = isMultiplayer
+
 	
 func set_assets_position() -> void:
 	var screen_size = get_viewport().size
