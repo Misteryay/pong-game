@@ -1,6 +1,8 @@
 extends Sprite2D
 
 
+@onready var input_handler: Node = $InputHandler
+
 
 var isMultiplayer : bool
 
@@ -8,7 +10,16 @@ var isMultiplayer : bool
 
 func _ready() -> void:
 	start_new_match()
+		
+func _physics_process(delta: float) -> void:
+	input_handler.player1_input(delta)
+	if isMultiplayer:
+		input_handler.player2_input(delta)
+	else:
+		input_handler.computer_movement(delta)
 	
+
+
 func start_new_match() -> void:
 	set_assets_position()
 	$Ball.new_match()
