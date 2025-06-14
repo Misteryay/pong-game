@@ -5,17 +5,17 @@ var scores: Array
 func _ready() -> void:
 	scores = [0,0]
 
-func left_score(body: Node2D):
+func left_score(_body: Node2D):
 	scores[1] += 1
 	update_score()
 	
-func right_score(body: Node2D):
+func right_score(_body: Node2D):
 	scores[0] += 1
 	update_score()
 	
 func update_score():
-	var left_score = $LeftScore
-	var right_score = $RightScore
+	var left = $LeftScore
+	var right = $RightScore
 	
-	left_score.text = str(scores[0])
-	right_score.text = str(scores[1])
+	left.text = str(scores[0])
+	right.text = str(scores[1])

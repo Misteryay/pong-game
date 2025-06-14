@@ -11,6 +11,10 @@ func new_match() -> void:
 	current_speed = 0.0
 
 func _physics_process(delta: float) -> void:
+	
+	if $"../PauseMenu".visible:
+		return
+	
 	var collision = move_and_collide(dir * current_speed * delta)
 	
 	if collision:
@@ -21,6 +25,7 @@ func _physics_process(delta: float) -> void:
 			dir = Vector2(dir.x, dir.y * -1)
 		else:
 			dir = bounce_pallet(collider)
+			collider.get_node("AudioStreamPlayer2D").play()
 			current_speed += ACCELERATION
 		
 func _on_start_timer_timeout() -> void:

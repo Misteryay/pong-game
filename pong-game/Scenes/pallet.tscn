@@ -1,7 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dotp12lljd87n"]
+[gd_scene load_steps=5 format=3 uid="uid://dotp12lljd87n"]
+
+[ext_resource type="AudioStream" uid="uid://diwowv2gje3bs" path="res://Assets/Sounds/bounce_01.wav" id="1_bkihh"]
+[ext_resource type="AudioStream" uid="uid://d1nlvjbq2cymn" path="res://Assets/Sounds/bounce_02.wav" id="2_xowko"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2q10t"]
 size = Vector2(16, 144)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_328v0"]
+playback_mode = 1
+streams_count = 2
+stream_0/stream = ExtResource("1_bkihh")
+stream_1/stream = ExtResource("2_xowko")
 
 [node name="Pallet" type="StaticBody2D" groups=["pallet"]]
 
@@ -13,3 +22,6 @@ offset_left = -8.0
 offset_top = -72.0
 offset_right = 8.0
 offset_bottom = 72.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_328v0")

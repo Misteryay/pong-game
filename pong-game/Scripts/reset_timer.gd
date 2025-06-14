@@ -1,4 +1,5 @@
 extends Timer
 
-func _on_score(body: Node2D):
+func _on_score(_body: Node2D):
+	$Goal.play()
 	start()

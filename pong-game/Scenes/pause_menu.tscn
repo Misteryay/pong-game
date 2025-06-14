@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds1t2e3ib4mgi"]
+
+[ext_resource type="Script" uid="uid://cv6xegalan34m" path="res://Scenes/pause_menu.gd" id="1_emv3i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y2c35"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emv3i"]
+bg_color = Color(0.877616, 0.877616, 0.877616, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_offset = Vector2(-2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0w1u"]
+bg_color = Color(0.581033, 0.581033, 0.581033, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_offset = Vector2(-2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1och7"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_offset = Vector2(-2, 1)
+
+[node name="PauseMenu" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -386.0
+offset_bottom = -210.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(95, 57)
+alignment = 1
+script = ExtResource("1_emv3i")
+
+[node name="ResumeButton" type="Button" parent="."]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y2c35")
+theme_override_styles/hover = SubResource("StyleBoxFlat_emv3i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k0w1u")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1och7")
+text = "Resume"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y2c35")
+theme_override_styles/hover = SubResource("StyleBoxFlat_emv3i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k0w1u")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1och7")
+text = "Exit
+"
+
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

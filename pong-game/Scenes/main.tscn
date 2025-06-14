@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dexg5k6ycpqj2"]
+[gd_scene load_steps=11 format=3 uid="uid://dexg5k6ycpqj2"]
 
 [ext_resource type="Script" uid="uid://boh1ds4mp5gh" path="res://Scripts/main.gd" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bj5ka0xiacjsd" path="res://Scenes/Ball.tscn" id="2_kry3j"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://bv4cw4gr52v0h" path="res://Scripts/input_handler.gd" id="5_21xkr"]
 [ext_resource type="PackedScene" uid="uid://dtqqnsqtaiwi3" path="res://Scenes/score.tscn" id="5_kry3j"]
 [ext_resource type="Script" uid="uid://u1hdx6cpcmby" path="res://Scripts/reset_timer.gd" id="6_21xkr"]
+[ext_resource type="AudioStream" uid="uid://dwwrqr0y71y5y" path="res://Assets/Sounds/laser1.wav" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://ds1t2e3ib4mgi" path="res://Scenes/pause_menu.tscn" id="8_344ge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
 size = Vector2(1152, 32)
@@ -13,8 +15,7 @@ size = Vector2(1152, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
 size = Vector2(16, 648)
 
-[node name="Main" type="Sprite2D"]
-centered = false
+[node name="Main" type="Node2D"]
 script = ExtResource("2_jjvhh")
 
 [node name="Ball" parent="." instance=ExtResource("2_kry3j")]
@@ -65,6 +66,12 @@ shape = SubResource("RectangleShape2D_kry3j")
 wait_time = 3.0
 one_shot = true
 script = ExtResource("6_21xkr")
+
+[node name="Goal" type="AudioStreamPlayer2D" parent="ResetTimer"]
+stream = ExtResource("7_6bp64")
+
+[node name="PauseMenu" parent="." instance=ExtResource("8_344ge")]
+size_flags_horizontal = 4
 
 [connection signal="body_entered" from="LeftScore" to="Score" method="left_score"]
 [connection signal="body_entered" from="LeftScore" to="ResetTimer" method="_on_score"]
